@@ -1,0 +1,17 @@
+name: Periodic pipeline
+
+on:
+  push:
+    branches: ['main']
+
+
+jobs:
+  health_check:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Ping the deployed service's URL
+      uses: jtalk/url-health-check-action@v4
+      with:
+        url: ${{ secrets.DEPLOYMENT_URL }}
+        max-attempts: 3
+        retry-delay: 5s
