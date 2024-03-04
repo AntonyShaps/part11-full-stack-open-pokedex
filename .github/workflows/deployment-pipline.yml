@@ -42,14 +42,14 @@ jobs:
             with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
                 username: 'GitHub Actions'
-                content: 'A new version has been successfully deployed 🚀'
+                text: 'A new version has been successfully deployed 🚀'
           - name: Notify Discord on Failure
             if: failure()
             uses: rjstone/discord-webhook-notify@v1.0.4
             with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
                 username: 'GitHub Actions'
-                content: 'The build has failed ❌ Check the logs for details.'
+                text: 'The build has failed ❌ Check the logs for details.'
 
 
     tag_release:
@@ -70,11 +70,11 @@ jobs:
               with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
                 username: 'GitHub Actions'
-                content: 'New release version tagged successfully ✅'
+                text: 'New release version tagged successfully ✅'
             - name: Notify Discord on Failure
               if: failure()
               uses: rjstone/discord-webhook-notify@v1.0.4
               with:
                 webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
                 username: 'GitHub Actions'
-                content: 'The build has failed ❌ Check the logs for details.'
+                text: 'The build has failed ❌ Check the logs for details.'
